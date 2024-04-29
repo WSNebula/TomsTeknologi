@@ -15,13 +15,19 @@ def read_qr_code(image):
     else:
         print("did not find any QR code")
 
+class Person:
+    def __init__(self, id, weightInKg, gender):
+        self.id = id
+        self.weightInKg = weightInKg
+        self.gender = gender
+
+person_map = {}
+def add_person(id, weightInKg, gender):
+    person_map[id] = Person(id, weightInKg, gender)
 
 cap = cv2.VideoCapture(0)
-
 
 while True:
     ret, frame = cap.read()
     read_qr_code(frame)
     sleep(1)
-
- 
